@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Dendyyy - Open-Source эмулятор NES, основанный на JSNES</title>
+	<title>Dendyyy - Open-Source эмулятор NES</title>
 </head>
 <style>
 	html{
@@ -109,15 +109,6 @@
 	</div>
 	<script src="lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="lib/dynamicaudio.js" type="text/javascript" charset="utf-8"></script>
-	<script src="source/nes.js" type="text/javascript" charset="utf-8"></script>
-	<script src="source/utils.js" type="text/javascript" charset="utf-8"></script>
-	<script src="source/cpu.js" type="text/javascript" charset="utf-8"></script>
-	<script src="source/keyboard.js" type="text/javascript" charset="utf-8"></script>
-	<script src="source/mappers.js" type="text/javascript" charset="utf-8"></script>
-	<script src="source/papu.js" type="text/javascript" charset="utf-8"></script>
-	<script src="source/ppu.js" type="text/javascript" charset="utf-8"></script>
-	<script src="source/rom.js" type="text/javascript" charset="utf-8"></script>
-	<script src="source/ui.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
 		var nes;
 		        $(function() {
@@ -161,11 +152,18 @@
 		            });
 		        });
 	</script>
-	<!--[if IE]>
-        <script type="text/vbscript" src="source/jsnes-ie-hacks.vbscript"></script>
-    <![endif]-->
+	<!-- <script src="lib/jsnes/jsnes-v1.2.0-6-gee248db.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="lib/jsnes/nes.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/jsnes/cpu.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/jsnes/keyboard.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/jsnes/mappers.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/jsnes/papu.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/jsnes/ppu.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/jsnes/rom.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/jsnes/ui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/jsnes/utils.js" type="text/javascript" charset="utf-8"></script>
 	<p>
-		<a href="https://pasha4ur.org.ua/">
+		<a href="https://dpteam.github.io/">
 			<< Go Back to Homepage</a>
 	</p>
 </body>
