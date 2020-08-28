@@ -102,3 +102,13 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Also
+
+/build
+/node_modules
+/public/roms/local
+/src/index.css
+.DS_Store
+Thumbs.db
+yarn-error.log

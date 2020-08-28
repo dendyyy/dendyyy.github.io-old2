@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Dendyyy - Open-Source эмулятор NES, основанный на JSNES</title>
+</head>
+<style>
+	html{
+	        background-color: #eee;
+	    }
+	    body{
+	        max-width: 1200px;
+	        margin: 2rem auto;
+	        background-color: #fff;
+	        padding: 2rem 3rem;
+	        font: 16px/1.3rem normal Verdana, sans-serif;
+	    }
+	    #wrapper{
+	        overflow: auto;
+	    }
+	    #controls, #mainwindow{
+	        float:left;
+	    }
+	    #mainwindow{
+	        margin-right: 3rem;
+	    }
+	    .nes-screen, .nes-roms, .nes-controls{
+	        padding-bottom: .5rem;
+	    }
+	    .nes-status{
+	        padding: .5rem 0;
+	        font-weight: 700;
+	        font-size: .6rem;
+	        text-align: center;
+	        border-radius: .5rem;
+	        background-color: #efefef;
+	        max-width: 100%;
+	    }
+	    table, td, th{
+	        border: 1px solid #ccc;
+	        border-collapse: collapse;
+	    }
+	    td, th{
+	        padding: .2rem .7rem;
+	    }
+</style>
+
+<body>
+	<h1>Dendyyy - Open-Source эмулятор NES, основанный на JSNES</h1>
+	<h2>Форк от DartPower Team</h2>
+	<hr />	<a>Выберите любую игру из списка.</a>
+	</br>	<a>Если хотите больше игр, создайте issue <a href="https://github.com/dendyyy/dendyyy.github.io/issues/new/choose">здесь</a>.</a>
+	</br>
+	<div id="wrapper">
+		<div id="mainwindow">
+			<h2>Окно игры</h2>
+			<div id="emulator"></div>
+		</div>
+		<div id="controls">
+			<h2>Управление</h2>
+			<table id="controls">
+				<tr>
+					<th>Кнопки</th>
+					<th>Игрок 1</th>
+					<th>Игрок 2</th>
+				</tr>
+				<tr>
+					<td>Влево</td>
+					<td>Влево</td>
+					<td>Num-4</td>
+					<tr>
+						<td>Вправо</td>
+						<td>Вправо</td>
+						<td>Num-6</td>
+					</tr>
+					<tr>
+						<td>Вверх</td>
+						<td>Вверх</td>
+						<td>Num-8</td>
+					</tr>
+					<tr>
+						<td>Вниз</td>
+						<td>Вниз</td>
+						<td>Num-2</td>
+					</tr>
+					<tr>
+						<td>A</td>
+						<td>X</td>
+						<td>Num-7</td>
+					</tr>
+					<tr>
+						<td>B</td>
+						<td>Z/Y</td>
+						<td>Num-9</td>
+					</tr>
+					<tr>
+						<td>Start</td>
+						<td>Enter</td>
+						<td>Num-1</td>
+					</tr>
+					<tr>
+						<td>Select</td>
+						<td>Ctrl</td>
+						<td>Num-3</td>
+					</tr>
+			</table>
+		</div>
+	</div>
+	<script src="lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="source/nes.js" type="text/javascript" charset="utf-8"></script>
+	<script src="source/utils.js" type="text/javascript" charset="utf-8"></script>
+	<script src="source/cpu.js" type="text/javascript" charset="utf-8"></script>
+	<script src="source/keyboard.js" type="text/javascript" charset="utf-8"></script>
+	<script src="source/mappers.js" type="text/javascript" charset="utf-8"></script>
+	<script src="source/papu.js" type="text/javascript" charset="utf-8"></script>
+	<script src="source/ppu.js" type="text/javascript" charset="utf-8"></script>
+	<script src="source/rom.js" type="text/javascript" charset="utf-8"></script>
+	<script src="source/ui.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		var nes;
+		        $(function() {
+		            nes = new JSNES({
+		                'ui': $('#emulator').JSNESUI({
+		                    "Наши ромы": [
+		                        ['D-Pad Hero', '/romsDPT/dpadhero.nes'],
+		                        ['D-Pad Hero 2', '/romsDPT/dpadhero2.nes']
+		                    ],
+		
+		                    "Ромы от подписчиков": [
+								['13', '/romsUser/13.nes'],
+								['17', '/romsUser/17.nes'],
+								['18', '/romsUser/18.nes'],
+								['2', '/romsUser/2.nes'],
+								['Battletoads', '/romsUser/Battletoads (E).nes'],
+								['Crisis Force', '/romsUser/Crisis Force (J) [T+Rus1.1 Greengh0st (26.07.2014)].nes'],
+								['Dr. Mario', '/romsUser/Dr. Mario (E) [!p].nes'],
+								['E.L.I.T.E', '/romsUser/Elite (E) [!p].nes'],
+								['Gold Medal Challenge 92', '/romsUser/gold-medal-challenge-92-(u).nes'],
+								['Golf', '/romsUser/Golf (U) [!].nes'],
+								['Kirbys Adventure', '/romsUser/Kirbys Adventure (E).nes'],
+								['Mario Bros.', '/romsUser/Mario Bros. (U) [!].nes'],
+								['Mario Bros. Classic', '/romsUser/Mario Bros. Classic (E) [!].nes'],
+								['Pinball', '/romsUser/Pinball (E) [!].nes'],
+								['Pinball II', '/romsUser/Pinball II (Pinball Hack).nes'],
+								['Retro City Rampage', '/romsUser/ROM City Rampage [!].nes'],
+								['Sim City', '/romsUser/SimCity.nes'],
+								['Super Mario Bros. Special', '/romsUser/SMB_Special.nes'],
+								['Sonic 3D Blast v6', '/romsUser/SonicBlast6.nes'],
+								['Summer Carnival 92 - Recca', '/romsUser/Summer Carnival 92 - Recca (Japan).nes'],
+								['Virus_(Dr._Mario)_(USA)_(Proto) 03 GG', '/romsUser/Virus_(Dr._Mario)_(USA)_(Proto) 03 GG.nes'],
+								['Virus_(Dr._Mario)_(USA)_(Proto) 0A GG', '/romsUser/Virus_(Dr._Mario)_(USA)_(Proto) 0A GG.nes'],
+								['Virus_(Dr._Mario)_(USA)_(Proto)', '/romsUser/Virus_(Dr._Mario)_(USA)_(Proto).nes'],
+								['Virus_(USA)_(1989_Proto)', '/romsUser/Virus_(USA)_(1989_Proto).nes'],
+								['Virus_(USA)_(1990_Proto)', '/romsUser/Virus_(USA)_(1990_Proto).nes'],
+		                        ['9999999-in-1 [p1]', '/romsUser/9999999-in-1 [p1].nes'],
+		                        ['9999999-in-1 [p2]', '/romsUser/9999999-in-1 [p2].nes']
+		                    ]
+		                })
+		            });
+		        });
+	</script>
+	<!--[if IE]>
+        <script type="text/vbscript" src="source/jsnes-ie-hacks.vbscript"></script>
+    <![endif]-->
+	<p>
+		<a href="https://pasha4ur.org.ua/">
+			<< Go Back to Homepage</a>
+	</p>
+</body>
+
+</html>
